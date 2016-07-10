@@ -78,5 +78,15 @@ h1 span {
   font-size: 25px;
   font-style: italic;
 }
+input{
+        
+        border: 10;
+        padding: 10px;
+        font-size: 18px;
+    }
+input[type="submit"]{
+      background: red;
+      color: white;
+    }
 
     
