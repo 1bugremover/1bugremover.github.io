@@ -1,0 +1,13 @@
+
+2
+down vote
+accepted
+Basically you just want to assign each "page" (which will actually just be divs or something like that) an id or class and then in your CSS file, set each of them to display:none. Then use jQuery's .show() and .hide() to show or hide them.
+
+To be more specific, you want to bind some handlers to the navigation, e.g. For the home navigation item:
+
+$("#my-home-nav").click(function(){
+    $("#my-home-div").show(); // or .fadeIn(), etc.
+    $("#my-about-div").hide();
+    $("#my-contact-div").hide();
+});
