@@ -63,8 +63,9 @@
   color: #00000;
     font-size: 15px;
     margin-bottom:13px;
-}
-.footer1 {
+  }
+  .footer1
+ {
   background-color: #ffffff;
   padding: 20px;
   line-height: 50%;
@@ -78,15 +79,14 @@ h1 span {
   font-size: 25px;
   font-style: italic;
 }
-input{
-        
-        border: 10;
-        padding: 10px;
-        font-size: 18px;
-    }
-input[type="submit"]{
-      background: red;
-      color: white;
-    }
+
+
+
+.reviews h4
+{
+  text-align: center;
+  color: #00b0ff;
+}
+
 
     
