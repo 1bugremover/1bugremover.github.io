@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Contact Form</title>
+ 
+    <link rel="stylesheet" href="style.css" type="text/css" />
+ 
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/jquery.form.js"></script>
+    <script type="text/javascript" src="js/contact.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <h1>Contact Sweetness</h1>
+      <form id="contactform" action="processForm.php" method="post">
+        <table>
+          <tr>
+            <td><label for="name">Name:</label></td>
+            <td><input type="text" id="name" name="name" /></td>
+          </tr>
+          <tr>
+            <td><label for="email">Email:</label></td>
+            <td><input type="text" id="email" name="email" /></td>
+          </tr>
+          <tr>
+            <td><label for="message">Message:</label></td>
+            <td><textarea id="message" name="message" rows="5" cols="20"></textarea></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="submit" value="Send!" id="send" /></td>
+          </tr>
+        </table>
+      </form>
+      <div id="response"></div>
+    </div>
+  </body>
+</html>
+
+body {
+  background: #24333d;
+  color: #4a606f;
+  font: 21px 'Helvetica', 'Arial', sans-serif;
+  margin: 0;
+  padding: 50px 0 0;
+}
+ 
+h1 {
+  color: #24333c;
+  font-size: 48px;
+  font-weight: normal;
+  margin: 25px 0 15px;
+  text-align: center;
+}
+ 
+#wrap {
+  background: #eaf0f4;
+  border: 5px solid #7a91a1;
+  margin: auto;
+  width: 500px;
+}
+ 
+form {
+  padding: 0;
+  margin: 0 0 20px;
+}
+table {
+  margin: 0 auto;
+}
+tr, td, input, textarea {
+  margin: 0;
+  padding: 0;
+}
+td {
+  padding: 0 0 5px;
+}
+tr td:first-child {
+  padding-right: 10px;
+  padding-top: 11px;
+  text-align: right;
+  vertical-align: top;
+}
+.error[generated=true] {
+  color: #dc0000;
+  font-size: 16px;
+  padding: 5px 0 2px 5px;
+}
+tr.error td {
+  padding: 0;
+}
+input, textarea {
+  background: #FFF;
+  border: 3px solid #7a91a1;
+  font: inherit;
+  font-size: 16px;
+  line-height: 29px;
+  min-height: 30px;
+  padding: 5px 10px;
+  width: 300px;
+}
+input:focus, textarea:focus {
+  border-color: #b0c3d0;
+  outline: none;
+}
+textarea {
+  height: 240px;
+  resize: vertical;
+}
+input[type=submit] {
+  background: #24333d;
+  color: #FFF;
+  font: inherit;
+  padding: 7px 20px;
+  width: auto;
+}
+ 
+#response {
+  margin-bottom: 20px;
+  text-align: center;
+}
+#response .success {
+  color: #08a300;
+}
+#response .failure {
+  color: #dc0000;
+}
+
+$(function() {
+  // Validate the contact form
+  $('#contactform').validate({
+    // Specify what the errors should look like
+    // when they are dynamically added to the form
+    errorElement: "label",
+    wrapper: "td",
+    errorPlacement: function(error, element) {
+      error.insertBefore( element.parent().parent() );
+      error.wrap("<tr class='error'></tr>");
+      $("<td></td>").insertBefore(error);
+    },
+ 
+    // Add requirements to each of the fields
+    rules: {
+      name: {
+        required: true,
+        minlength: 2
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      message: {
+        required: true,
+        minlength: 10
+      }
+    },
+ 
+    // Specify what error messages to display
+    // when the user does something horrid
+    messages: {
+      name: {
+        required: "Please enter your name.",
+        minlength: jQuery.format("At least {0} characters required.")
+      },
+      email: {
+        required: "Please enter your email.",
+        email: "Please enter a valid email."
+      },
+      message: {
+        required: "Please enter a message.",
+        minlength: jQuery.format("At least {0} characters required.")
+      }
+    },
+ 
+    // Use Ajax to send everything to processForm.php
+    submitHandler: function(form) {
+      $("#send").attr("value", "Sending...");
+      $(form).ajaxSubmit({
+        target: "#response",
+        success: function(responseText, statusText, xhr, $form) {
+          $(form).slideUp("fast");
+          $("#response").html(responseText).hide().slideDown("fast");
+        }
+      });
+      return false;
+    }
+  });
+});
+
+<?php
+ 
+// Clean up the input values
+foreach($_POST as $key => $value) {
+  if(ini_get('magic_quotes_gpc'))
+    $_POST[$key] = stripslashes($_POST[$key]);
+ 
+  $_POST[$key] = htmlspecialchars(strip_tags($_POST[$key]));
+}
+ 
+// Assign the input values to variables for easy reference
+$name = $_POST["name"];
+$email = $_POST["email"];
+$message = $_POST["message"];
+ 
+// Test input values for errors
+$errors = array();
+if(strlen($name) < 2) {
+  if(!$name) {
+    $errors[] = "You must enter a name.";
+  } else {
+    $errors[] = "Name must be at least 2 characters.";
+  }
+}
+if(!$email) {
+  $errors[] = "You must enter an email.";
+} else if(!validEmail($email)) {
+  $errors[] = "You must enter a valid email.";
+}
+if(strlen($message) < 10) {
+  if(!$message) {
+    $errors[] = "You must enter a message.";
+  } else {
+    $errors[] = "Message must be at least 10 characters.";
+  }
+}
+ 
+if($errors) {
+  // Output errors and die with a failure message
+  $errortext = "";
+  foreach($errors as $error) {
+    $errortext .= "<li>".$error."</li>";
+  }
+  die("<span class='failure'>The following errors occured:<ul>". $errortext ."</ul></span>");
+}
+ 
+// Send the email
+$to = "YOUR_EMAIL";
+$subject = "Contact Form: $name";
+$message = "$message";
+$headers = "From: $email";
+ 
+mail($to, $subject, $message, $headers);
+ 
+// Die with a success message
+die("<span class='success'>Success! Your message has been sent.</span>");
+ 
+// A function that checks to see if
+// an email is valid
+function validEmail($email)
+{
+   $isValid = true;
+   $atIndex = strrpos($email, "@");
+   if (is_bool($atIndex) && !$atIndex)
+   {
+      $isValid = false;
+   }
+   else
+   {
+      $domain = substr($email, $atIndex+1);
+      $local = substr($email, 0, $atIndex);
+      $localLen = strlen($local);
+      $domainLen = strlen($domain);
+      if ($localLen < 1 || $localLen > 64)
+      {
+         // local part length exceeded
+         $isValid = false;
+      }
+      else if ($domainLen < 1 || $domainLen > 255)
+      {
+         // domain part length exceeded
+         $isValid = false;
+      }
+      else if ($local[0] == '.' || $local[$localLen-1] == '.')
+      {
+         // local part starts or ends with '.'
+         $isValid = false;
+      }
+      else if (preg_match('/\\.\\./', $local))
+      {
+         // local part has two consecutive dots
+         $isValid = false;
+      }
+      else if (!preg_match('/^[A-Za-z0-9\\-\\.]+$/', $domain))
+      {
+         // character not valid in domain part
+         $isValid = false;
+      }
+      else if (preg_match('/\\.\\./', $domain))
+      {
+         // domain part has two consecutive dots
+         $isValid = false;
+      }
+      else if(!preg_match('/^(\\\\.|[A-Za-z0-9!#%&`_=\\/$\'*+?^{}|~.-])+$/',
+                 str_replace("\\\\","",$local)))
+      {
+         // character not valid in local part unless
+         // local part is quoted
+         if (!preg_match('/^"(\\\\"|[^"])+"$/',
+             str_replace("\\\\","",$local)))
+         {
+            $isValid = false;
+         }
+      }
+      if ($isValid && !(checkdnsrr($domain,"MX") || checkdnsrr($domain,"A")))
+      {
+         // domain not found in DNS
+         $isValid = false;
+      }
+   }
+   return $isValid;
+}
+ 
+?>

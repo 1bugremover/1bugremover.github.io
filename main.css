@@ -39,15 +39,16 @@
   background-color: #f7f7f7;
 }
 
+.learn-more a{
+  color: #00b0ff;
+}
+
 .learn-more h3 {
   font-family: 'Shift', sans-serif;
   font-size: 18px;
   font-weight: bold;
 }
 
-.learn-more a {
-  color: #00b0ff;
-}
 
 .reviews {
     background-color: #efefef;
@@ -64,29 +65,96 @@
     font-size: 15px;
     margin-bottom:13px;
   }
-  .footer1
- {
+  .books {
+    background-color: #efefef;
+    border-bottom: 1px solid #dbdbdb;
+    font-family: 'Shift', sans-serif;
+}
+
+.books h3{
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  color:#e10707;
+}
+
+.books h2 {
+    display: block;
+  text-align: center;
+  font-weight: bold;
+  color: #0033cc;
+
+}
+
+.books p {
+  color: #00000;
+  display: block;
+
+    font-size: 15px;
+    margin-bottom:13px;
+    
+  }
+
+  img.center{
+    display: block;
+    margin-left: auto;
+    margin-right:auto;
+  }
+  .footer1 {
   background-color: #ffffff;
   padding: 20px;
   line-height: 50%;
 
 }
+
 .footer1 span {
 font-weight: bold;
 color: blue;
 }
+
 h1 span {
   font-size: 25px;
   font-style: italic;
 }
+.links span{
+  font-style:italic;
+  font-weight:bold;
+  font-size:12px;
+}
 
-
-
-.reviews h4
-{
+.links h4{
+  display: block;
   text-align: center;
   color: #00b0ff;
+  padding-top: 40px;
 }
+
+.links a {
+  color: #428bca;
+}
+
+
+.about h4{
+  display: block;
+  text-align: center;
+  color: #00b0ff;
+
+}
+.archives h3{
+  display: block;
+  text-align: center;
+  color: #00b0ff;
+
+}
+
+.contact {
+  display: block;
+  text-align: center;
+  padding-top: 200px;
+  color: #00b0ff;
+}
+
+
 
 
     
