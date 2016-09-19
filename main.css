@@ -125,21 +125,26 @@ h1 span {
 .links h4{
   display: block;
   text-align: center;
-  color: #00b0ff;
+  color: black;
   padding-top: 40px;
 }
 
 .links a {
-  color: #428bca;
+  color: #00b0ff;
 }
 
 
 .about h4{
   display: block;
   text-align: center;
-  color: #00b0ff;
+  color: #ff5733;
 
 }
+.about h2{
+  color: black;
+  font-weight: normal;
+}
+
 .archives h3{
   display: block;
   text-align: center;
@@ -153,7 +158,9 @@ h1 span {
   padding-top: 200px;
   color: #00b0ff;
 }
-
+.footer2 a{
+  color: #00b0ff;
+}
 
 
 
