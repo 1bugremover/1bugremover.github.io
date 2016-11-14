@@ -145,6 +145,24 @@ h1 span {
   font-weight: normal;
 }
 
+.essays {
+
+    background-color: #efefef;
+    border-bottom: 1px solid #dbdbdb;
+    font-family: 'Shift', sans-serif;
+
+}
+.essays h4{
+  padding-top: 25px;
+  padding-bottom: 10px;
+  display: block;
+  font-weight: normal;
+  color: black;
+  
+
+}
+
+
 .archives h3{
   display: block;
   text-align: center;
