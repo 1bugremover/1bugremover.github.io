@@ -162,6 +162,82 @@ h1 span {
 
 }
 
+.essays p{
+  color: 00000;
+  font-size: 15px;
+  margin-bottom: 13px;
+}
+
+
+.apictureisworthathousandwords {
+
+    background-color: #efefef;
+    border-bottom: 1px solid #dbdbdb;
+    font-family: 'Shift', sans-serif;
+
+}
+.apictureisworthathousandwords h4{
+  padding-top: 25px;
+  padding-bottom: 10px;
+  display: block;
+  font-weight: normal;
+  color: black;
+  
+
+}
+
+.apictureisworthathousandwords p{
+  color: 00000;
+  font-size: 15px;
+  margin-bottom: 13px;
+}
+
+.wordswordswords {
+
+    background-color: #efefef;
+    border-bottom: 1px solid #dbdbdb;
+    font-family: 'Shift', sans-serif;
+
+}
+.wordswordswords h4{
+  padding-top: 25px;
+  padding-bottom: 10px;
+  display: block;
+  font-weight: normal;
+  color: black;
+  
+
+}
+
+.wordswordswords p{
+  color: 00000;
+  font-size: 15px;
+  margin-bottom: 13px;
+}
+
+.whywrite {
+
+    background-color: #efefef;
+    border-bottom: 1px solid #dbdbdb;
+    font-family: 'Shift', sans-serif;
+
+}
+.whywrite h4{
+  padding-top: 25px;
+  padding-bottom: 10px;
+  display: block;
+  font-weight: normal;
+  color: black;
+  
+
+}
+
+.whywrite p{
+  color: 00000;
+  font-size: 15px;
+  margin-bottom: 13px;
+}
+
 
 .archives h3{
   display: block;
