@@ -246,12 +246,16 @@ h1 span {
 
 }
 
-.contact {
-  display: block;
+#mc_embed_signup{
+  background:#ffffff;
+  display:block;
+  padding-top: 20px; 
   text-align: center;
-  padding-top: 200px;
+  clear:left; 
   color: #00b0ff;
-}
+  font:14px Helvetica,Arial,sans-serif; }
+
+
 .footer2 a{
   color: #00b0ff;
 }
