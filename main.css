@@ -316,7 +316,9 @@ margin-top: 35px;
    pointer-events: none;
    cursor: default;
 }
-
+p.small{
+  line-heigt: 70%;
+}
 
 
 
