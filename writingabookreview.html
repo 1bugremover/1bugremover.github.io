@@ -1,31 +1,8 @@
 <html>
 
-  <html lang="en">
-<head>
-<style>
-    .article {
-
-    background-color: #efefef;
-    border-bottom: 1px solid #dbdbdb;
-    font-family: 'Shift', sans-serif;
-
-}
-.article h4{
-  padding-top: 25px;
-  padding-bottom: 10px;
-  display: block;
-  font-weight: normal;
-  color: black;
   
-
-}
-
-.article p{
-  color: 00000;
-  font-size: 15px;
-  margin-bottom: 13px;
-}
-</style>    
+<head>
+  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
@@ -40,16 +17,28 @@
   </head>
 
   <body>
-    <div class="nav">
-      <div class="container-fluid">
+<div class="nav">
+    <div class="container-fluid">
 
         <ul class="pull-left">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="About.html">About</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
         </ul>
-        
-        <ul class="pull-right">
-           <li><a href="essays.html">Essays</a></li>
+
+         <ul class="pull-right">
+           
+
+           
+          <li class="dropdown">
+
+    <a href="essays.html" button class="dropbtn">Essays</button></a>
+    <div class="dropdown-content">
+      <a href="whereconversationsbegin.html">Where Conversations Begin</a>
+      <a href="whereartmeetswords.html">Where Art Meets Words</a>
+      <a href="wordswordswords.html">Words, words, words</a>
+      <a href="whywrite.html">Why Write</a>
+    </div>
+  </li>
           <li><a href="archive.html">Archive</a></li>
          
          
@@ -71,13 +60,13 @@
       <div class="container-fluid">
     <div class="row">
         
-       <div class="col-md-4"> 
+       <div class="col-md-3"> 
       <h3> A Picture Book</h3>
       <p>Where art meets words.</p>
     <p><a href="apictureisworthathousandwords.html">A picture is worth a thousand words</a></p>
         </div>
      
-      <div class="col-md-4">
+      <div class="col-md-3">
       <h3>Other Books</h3>
     <p>Words can create pictures too.</p> 
     <p>The power of imagination.</p>
@@ -91,7 +80,7 @@
       </div> 
       
     
-      <div class="col-md-4">
+      <div class="col-md-3">
       <h3>All About Writing</h3>
     <p>Random thoughts on the how and why of writing</p>
     <p><a href="whywrite.html">Why write</a></p>
