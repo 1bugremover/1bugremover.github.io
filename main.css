@@ -116,10 +116,21 @@ h1 span {
   font-size: 25px;
   font-style: italic;
 }
+
 h3 span {
   font-size: 25px;
   font-style: italic;
 }
+
+.doggerel {
+  line-height: 1.2em;
+  margin-left: 3em;
+}
+
+.doggerel2{
+  margin-left: 3em
+}
+
 .links span{
   font-style:italic;
   font-weight:bold;
