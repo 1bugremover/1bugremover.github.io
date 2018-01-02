@@ -116,6 +116,10 @@ h1 span {
   font-size: 25px;
   font-style: italic;
 }
+h3 span {
+  font-size: 25px;
+  font-style: italic;
+}
 .links span{
   font-style:italic;
   font-weight:bold;
@@ -244,6 +248,9 @@ h1 span {
   text-align: center;
   color: #00b0ff;
 
+}
+.writingadventure p{
+  text-indent: 50px;
 }
 
 #mc_embed_signup{
