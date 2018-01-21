@@ -126,7 +126,9 @@ h3 span {
   line-height: 1.2em;
   margin-left: 3em;
 }
-
+p span{
+  font-style: bold;
+}
 
 
 .links span{
