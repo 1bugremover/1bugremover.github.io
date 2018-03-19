@@ -338,8 +338,9 @@ p.small{
   line-heigt: 70%;
 }
 .footer3{
-  align: center;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+
 }
-
-
     
